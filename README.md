@@ -37,10 +37,22 @@ flowchart TD
 ---
 ## Tagging Policy
 
+| Trigger Type   | Image Tag                        | Push to Registry? |
+| -------------- | -------------------------------- |-----------------  |
+| Push to `main` | `latest`                         | Yes               |
+| PR to `main`   | No actual tag, only build tested | No                |
 
 ---
-## GitHub Actions Configuration
+## GitHub Setting
 
+### GitHub Secrets
+| Secret Name       | Purpose                         |
+| ----------------- | ------------------------------- |
+| `DOCKER_USERNAME` | Docker Registry username        |
+| `DOCKER_PASSWORD` | Docker password or Access Token |
+
+
+### Actions Configuration
 ```yaml
 name: Build and Push Docker Image
 
@@ -69,4 +81,17 @@ jobs:
       - name: Push Docker Image (only on push)
         if: github.event_name == 'push'
         run: docker push 2025cloud/hello-world-js:latest
+```
+---
+## Manual Testing Process
+```bash
+
+    # Build Docker Image
+    docker build -t poglotti/hello-world-py:latest .
+
+    # Login to Docker Hub
+    docker login -u username
+
+    # Push to Docker Registry
+    docker push poglotti/hello-world-py:latest
 ```
