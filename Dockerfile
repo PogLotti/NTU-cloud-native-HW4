@@ -1,7 +1,7 @@
 # Use official Python base image
 FROM python:3.11-slim
 
-# Set the working directory
+# Set directory
 WORKDIR /app
 
 # Copy the Python script into the container
