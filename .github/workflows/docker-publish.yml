@@ -30,4 +30,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/2025cloud:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/hello-world-python:latest
