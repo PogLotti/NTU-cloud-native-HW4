@@ -24,4 +24,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: your-docker-namespace/hello-world-python:latest
+          tags: poglotti/hello-world-python:latest
